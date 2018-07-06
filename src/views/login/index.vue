@@ -1,10 +1,11 @@
 <template>
   <div class="form-wrapper">
     <el-form :model="ruleForm2" status-icon :rules="rules2" ref="ruleForm2" label-width="100px" class="demo-ruleForm">
-      <el-form-item label="账号" prop="user">
+      <el-form-item label="" prop="user">
+        <svg-icon icon-name="user"></svg-icon>
         <el-input type="text" v-model="ruleForm2.user" auto-complete="off"></el-input>
       </el-form-item>
-      <el-form-item label="密码" prop="pass">
+      <el-form-item label="" prop="pass">
         <el-input type="password" v-model.number="ruleForm2.pass"></el-input>
       </el-form-item>
       <el-form-item>
