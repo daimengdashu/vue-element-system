@@ -2,10 +2,15 @@
   <div class="form-wrapper">
     <el-form :model="ruleForm2" status-icon :rules="rules2" ref="ruleForm2" label-width="100px" class="demo-ruleForm">
       <el-form-item label="" prop="user">
-        <svg-icon icon-name="user"></svg-icon>
+        <span class="icon-wrapper">
+          <svg-icon iconName="user"></svg-icon>
+        </span>
         <el-input type="text" v-model="ruleForm2.user" auto-complete="off"></el-input>
       </el-form-item>
       <el-form-item label="" prop="pass">
+        <span class="icon-wrapper">
+          <svg-icon iconName="pass"></svg-icon>
+        </span>
         <el-input type="password" v-model.number="ruleForm2.pass"></el-input>
       </el-form-item>
       <el-form-item>
@@ -78,6 +83,19 @@ export default {
     width: 400px;
     .el-button {
       width: 100%;
+    }
+    .icon-wrapper {
+      position: absolute;
+      left: 1px;
+      top: 2px;
+      font-size: 12px;
+      width: 14px;
+      height: 14px;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 5px;
+      color:#000;
+      z-index: 1000;
     }
   }
 }

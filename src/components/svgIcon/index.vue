@@ -8,10 +8,10 @@ export default {
   name: 'icon-svg',
   props: {
     svgName: {
-      type: 'string'
+      type: String
     },
     iconName: {
-      type: 'string',
+      type: String,
       required: true
     }
   },

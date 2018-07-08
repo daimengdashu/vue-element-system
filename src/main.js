@@ -7,10 +7,8 @@ import router from './router'
 import '@/styles/reset.css'
 import Element from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
-import SvgIcon from '@/components/svgIcon'
-import './icons/svg/user.svg'
+import '@/icons'
 
-Vue.component('svg-icon', SvgIcon)
 Vue.use(Element)
 
 Vue.config.productionTip = false
