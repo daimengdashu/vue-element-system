@@ -20,6 +20,9 @@
   </div>
 </template>
 <script>
+// import axios from 'axios'
+import {login} from '@/api/login'
+// import {Message, MessageBox} from 'element-ui'
 export default {
   name: 'login',
   data() {
@@ -56,7 +59,12 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          console.log(this.ruleForm2.user, this.ruleForm2.pass)
+          login(this.ruleForm2.user, this.ruleForm2.pass).then(res => {
+            if (res.code === '000000') {
+              console.log(res)
+              this.$router.push('/layout')
+            }
+          })
         } else {
           console.log('error submit!!')
           return false
@@ -74,7 +82,7 @@ export default {
   left: 0;
   bottom: 0;
   right: 0;
-  background-color: #fff;
+  background-color: lightblue;
   .el-form {
     position: absolute;
     left: 50%;

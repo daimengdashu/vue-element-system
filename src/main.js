@@ -9,6 +9,9 @@ import Element from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import '@/icons'
 
+import './mockDatas'
+import './utils/request.js'
+
 Vue.use(Element)
 
 Vue.config.productionTip = false
