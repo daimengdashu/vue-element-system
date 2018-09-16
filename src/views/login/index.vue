@@ -59,10 +59,14 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          login(this.ruleForm2.user, this.ruleForm2.pass).then(res => {
+          login((this.ruleForm2.user + '').trim(), (this.ruleForm2.pass + '').trim()).then(res => {
             if (res.code === '000000') {
-              console.log(res)
-              this.$router.push('/layout')
+              this.$router.push({
+                name: 'layout',
+                params: {
+                  username: (this.ruleForm2.user + '').trim()
+                }
+              })
             }
           })
         } else {
