@@ -1,29 +1,31 @@
 <template>
   <el-row class="tac">
     <el-col :span="24">
-      <el-menu v-for='(items, index) in menus' :key="items.menu" :default-active="hasChild" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" background-color="#082450" text-color="#fff" active-text-color="blue">
-        <el-submenu :index="(index + 1 + '')" v-if="items.children.length !== 0">
-          <template slot="title">
-            <i class="el-icon-location"></i>
-            <span>{{ items.menu }}</span>
-          </template>
-          <div v-for="(item, i) in items.children" :key="item.menu">
-            <el-menu-item-group v-if="item.children.length === 0">
-              <el-menu-item :index="(index + 1 + '-' + (i + 1))">{{ item.menu }}</el-menu-item>
-            </el-menu-item-group>
-            <el-submenu :index="(index + 1 + '-' + (i + 1))" v-else-if="item.children.length !== 0">
-              <template slot="title">
-                <i class="el-icon-location"></i>
-                <span>{{ item.menu }}</span>
-              </template>
-              <side-bar :menus="item.children"></side-bar>
-            </el-submenu>
-          </div>
-        </el-submenu>
-        <el-menu-item :index="(index + 1 + '')" v-else-if="items.children.length === 0">
-          <i class="el-icon-menu"></i>
-          <span slot="title">{{ items.menu }}</span>
-        </el-menu-item>
+      <el-menu :default-active="hasChild" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" background-color="#082450" text-color="#fff" active-text-color="blue">
+        <div v-for='(items, index) in menus' :key="items.menu">
+          <el-submenu :index="(index + 1 + '')" v-if="items.children.length !== 0">
+            <template slot="title">
+              <i class="el-icon-location"></i>
+              <span>{{ items.menu }}</span>
+            </template>
+            <div v-for="(item, i) in items.children" :key="item.menu">
+              <el-menu-item-group v-if="item.children.length === 0">
+                <el-menu-item :index="(index + 1 + '-' + (i + 1))">{{ item.menu }}</el-menu-item>
+              </el-menu-item-group>
+              <el-submenu :index="(index + 1 + '-' + (i + 1))" v-else-if="item.children.length !== 0">
+                <template slot="title">
+                  <i class="el-icon-location"></i>
+                  <span>{{ item.menu }}</span>
+                </template>
+                <side-bar :menus="item.children"></side-bar>
+              </el-submenu>
+            </div>
+          </el-submenu>
+          <el-menu-item :index="(index + 1 + '')" v-else-if="items.children.length === 0">
+            <i class="el-icon-menu"></i>
+            <span slot="title">{{ items.menu }}</span>
+          </el-menu-item>
+        </div>
       </el-menu>
     </el-col>
   </el-row>
@@ -39,10 +41,18 @@ export default {
   },
   computed: {
     hasChild() {
-      if (this.menus[0].children.length === 0) {
-        return '1'
+      console.log(this.menus[0])
+      let num = ''
+      if (!this.menus[0]) {
+        return num
       } else {
-        return '1-1'
+        if (this.menus[0].children.length === 0) {
+          num = '1'
+          return '1'
+        } else {
+          num = '1-1'
+          return '1-1'
+        }
       }
     }
   },

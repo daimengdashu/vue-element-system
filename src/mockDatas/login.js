@@ -6,7 +6,7 @@ export function returnLoginInfo (req) {
   if (names.indexOf(username) === -1) {
     return {
       code: '222222',
-      message: '您的账号或密码错误!'
+      message: '登陆失败!'
     }
   }
   if (username === 'admin') {
@@ -88,8 +88,17 @@ export function returnLoginInfo (req) {
                 children: [{
                   menu: '文档上传',
                   children: []
+                }, {
+                  menu: '被审计单位',
+                  children: []
                 }]
+              }, {
+                menu: '行政区划',
+                children: []
               }]
+            }, {
+              menu: '系统管理',
+              children: []
             }]
           }, {
             menu: '问题审核',

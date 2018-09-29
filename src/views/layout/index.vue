@@ -21,6 +21,7 @@ export default {
   },
   created() {
     this.getMenus()
+    console.log(this.menus)
   },
   methods: {
     getMenus: function() {
@@ -28,6 +29,7 @@ export default {
       console.log(this.$route.params)
       login(username, '').then(res => {
         if (res.code === '000000') {
+          console.log(this)
           this.menus = res.data.menus
         }
       })
