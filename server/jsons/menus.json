@@ -1,0 +1,48 @@
+[
+{
+  "role": "superadmin",
+  "menus": [
+  {
+    "menu": "单位管理",
+    "children": [],
+    "path": "unitManage"
+  },
+  {
+    "menu": "组织管理",
+    "children": [],
+    "path": "orgManage"
+  },
+  {
+    "menu": "系统配置",
+    "path": "",
+    "children": [
+    {
+      "menu": "用户管理",
+      "children": [],
+      "path": "userManage"
+    },
+    {
+      "menu": "菜单管理",
+      "children": [],
+      "path": "menuManage"
+    }]
+  }]
+},{
+  "role": "normaluser",
+  "menus": [
+  {
+    "menu": "单位管理",
+    "children": [],
+    "path": "unitManage"
+  },
+  {
+    "menu": "系统配置",
+    "path": "",
+    "children": [
+    {
+      "menu": "用户管理",
+      "children": [],
+      "path": "userManage"
+    }]
+  }]
+}]

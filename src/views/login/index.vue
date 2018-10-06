@@ -21,7 +21,7 @@
 </template>
 <script>
 // import axios from 'axios'
-import {login} from '@/api/login'
+import { login } from '@/api/login'
 // import {Message, MessageBox} from 'element-ui'
 export default {
   name: 'login',
@@ -60,12 +60,14 @@ export default {
       this.$refs[formName].validate((valid) => {
         if (valid) {
           login((this.ruleForm2.user + '').trim(), (this.ruleForm2.pass + '').trim()).then(res => {
-            if (res.code === '000000') {
+            if (res) {
+              const userRole = {
+                name: (this.ruleForm2.user + '').trim(),
+                role: res.role
+              }
+              window.sessionStorage.setItem('userRole', JSON.stringify(userRole))
               this.$router.push({
-                name: 'layout',
-                params: {
-                  username: (this.ruleForm2.user + '').trim()
-                }
+                path: '/layout'
               })
             }
           })
@@ -87,15 +89,18 @@ export default {
   bottom: 0;
   right: 0;
   background-color: lightblue;
+
   .el-form {
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     width: 400px;
+
     .el-button {
       width: 100%;
     }
+
     .icon-wrapper {
       position: absolute;
       left: 1px;
@@ -106,7 +111,7 @@ export default {
       display: inline-block;
       vertical-align: middle;
       margin-right: 5px;
-      color:#000;
+      color: #000;
       z-index: 1000;
     }
   }

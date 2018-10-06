@@ -12,7 +12,10 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.3",
     "element-ui": "^2.4.3",
+    "express": "^4.16.3",
     "prettier": "^1.12.1",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",

@@ -6,12 +6,12 @@ import router from './router'
 import store from './store'
 
 import '@/styles/reset.css'
+import '@/styles/common.css'
 import Element from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import '@/icons'
 
-import './mockDatas'
-import './utils/request.js'
+// import './utils/request.js'
 
 Vue.use(Element)
 

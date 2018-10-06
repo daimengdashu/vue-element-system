@@ -1,6 +1,6 @@
 import Request from '@/utils/request'
 
-export function login (username, password) {
+export function login(username, password) {
   const data = {
     username,
     password
@@ -10,4 +10,14 @@ export function login (username, password) {
     method: 'post',
     data
   })
+}
+
+export function getMenus(role) {
+	return Request({
+		url: '/getMenus',
+		method: 'post',
+		data: {
+			role
+		}
+	})
 }
