@@ -42,8 +42,9 @@ export default {
   },
   methods: {
     _getMenus: function() {
-      const userRole = JSON.parse(window.sessionStorage.getItem('userRole'))
-      if (!userRole) {
+      const username = window.sessionStorage.getItem('user')
+      console.log(document.cookie)
+      if (!username) {
         this.$alert('登录已过期,请重新登陆!', '提示', {
           confirmButtonText: '确定',
           callback: action => {
@@ -54,8 +55,8 @@ export default {
         })
         return
       }
-      this.username = userRole.name
-      getMenus(userRole.role).then(res => {
+      this.username = username
+      getMenus().then(res => {
         console.log(res)
         this.menus = res.data
       })

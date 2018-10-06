@@ -14,6 +14,7 @@ const fs = require('fs')
 const path = require('path')
 
 exports.login = function(req, res) {
+  console.log(req.session)
   let username = req.body.username.trim()
   let password = req.body.password.trim()
   console.log(username, password)
@@ -24,10 +25,11 @@ exports.login = function(req, res) {
     userRole.forEach(function(v, i) {
       if (username === v.name) {
         if (password === v.pass) {
+          req.session.role = v.role
+          req.session.username = username
           res.send({
             code: '000000',
-            message: '登陆成功',
-            role: v.role
+            message: '登陆成功'
           })
         } else {
           res.send({
@@ -48,8 +50,10 @@ exports.login = function(req, res) {
 
 
 exports.getMenus = function(req,res){
-  console.log(req.body)
-  const role = req.body.role
+  console.log(req.session)
+
+  const role = req.session.role
+  res.locals.session = req.session;
   fs.readFile(path.join(__dirname,'../jsons/menus.json'),function(err,data){
     if(err){
       throw err;

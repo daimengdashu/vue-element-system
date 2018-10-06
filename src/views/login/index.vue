@@ -61,11 +61,7 @@ export default {
         if (valid) {
           login((this.ruleForm2.user + '').trim(), (this.ruleForm2.pass + '').trim()).then(res => {
             if (res) {
-              const userRole = {
-                name: (this.ruleForm2.user + '').trim(),
-                role: res.role
-              }
-              window.sessionStorage.setItem('userRole', JSON.stringify(userRole))
+              window.sessionStorage.setItem('user', (this.ruleForm2.user + '').trim())
               this.$router.push({
                 path: '/layout'
               })

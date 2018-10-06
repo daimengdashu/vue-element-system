@@ -12,12 +12,10 @@ export function login(username, password) {
   })
 }
 
-export function getMenus(role) {
+export function getMenus() {
 	return Request({
 		url: '/getMenus',
 		method: 'post',
-		data: {
-			role
-		}
+		data: {}
 	})
 }
